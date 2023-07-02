@@ -15,12 +15,12 @@ builder.Services.AddSwaggerGen();
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddDbContext<DataContext>(options =>
-        options.UseSqlite(builder.Configuration.GetConnectionString("DataContext")));
+        options.UseSqlite(builder.Configuration.GetConnectionString("SqliteDbConnection")));
 }
 else
 {
     builder.Services.AddDbContext<DataContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("ProdDataContext")));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlDbConnection")));
 }
 
 var app = builder.Build();
